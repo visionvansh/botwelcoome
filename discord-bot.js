@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
+const express = require('express');
 
 const client = new Client({
   intents: [
@@ -12,8 +13,14 @@ const client = new Client({
 
 const TOKEN = process.env.DISCORD_BOT_TOKEN;
 const WELCOME_CHANNEL_ID = process.env.WELCOME_CHANNEL_ID;
-
 const embedColors = [0xFFFFFF, 0xFFFF00, 0x2F3136];
+
+// Express server to keep bot awake
+const app = express();
+app.get('/healthz', (req, res) => res.send('OK'));
+app.listen(process.env.PORT || 3000, () => {
+  console.log('Express server running on port', process.env.PORT || 3000);
+});
 
 client.once('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
