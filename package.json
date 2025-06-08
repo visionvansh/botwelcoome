@@ -1,6 +1,16 @@
 {
+  "name": "welcome-bot",
+  "version": "1.0.0",
+  "description": "Discord bot for sending welcome messages",
+  "main": "discord-bot.js",
+  "scripts": {
+    "start": "node discord-bot.js",
+    "build": "echo 'No build step required for plain JavaScript'"
+  },
   "dependencies": {
-    "discord.js": "^14.19.3",
-    "dotenv": "^16.5.0"
-  }
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5"
+  },
+  "author": "Your Name",
+  "license": "ISC"
 }
